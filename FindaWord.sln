@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindaWord", "FindaWord\FindaWord.csproj", "{FF3FC235-876B-43D7-BCBD-720A02D36303}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF3FC235-876B-43D7-BCBD-720A02D36303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3FC235-876B-43D7-BCBD-720A02D36303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3FC235-876B-43D7-BCBD-720A02D36303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3FC235-876B-43D7-BCBD-720A02D36303}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A23A7C38-F03C-4ECB-B28A-26784DAFCCC7}
+	EndGlobalSection
+EndGlobal
