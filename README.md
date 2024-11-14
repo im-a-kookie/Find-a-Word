@@ -6,6 +6,6 @@ Essentially, the algorithm takes a given set of words, then generates a word sea
 
 An example puzzle can be found [here](FindaWord/Resources/Puzzle.png).
 
-Simple CLI usage.
+Simple command line usage, with an inbuilt utility for choosing words from an included dictionary.
 
-Inspired by a social media post, where the poster lamented the difficulty of creating such puzzles manually.
+Inspired by a social media post lamenting the difficulty of creating such puzzles for a spouse.
