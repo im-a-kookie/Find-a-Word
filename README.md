@@ -14,8 +14,9 @@ Words are excluded by (1) graphing a dictionary of common English words as a pro
 
 While easily configurable, unspecified words of up to 3 letters may still appear, as it proves mathematically unreasonable to exclude them.
 
-The progressive tree can be constructed very efficiently through the use of Span operations. However, tree construction is relatively slow (500ms+) and has significant memory requirements. In cases where this is not suitable, the algorithm may be significantly sped up by multithreading, as partitioning the list by initial letter obviates the need for synchronization. 
+The progressive tree can be constructed very efficiently through the use of Span operations. However, tree construction is relatively slow (500ms+) and the final tree has significant memory requirements. In cases where this is not suitable, the algorithm may be significantly sped up by multithreading, as partitioning the list by initial letter obviates the need for synchronization.
 
+A further future optimization observes that, with only 26 possible branches, significant optimizations are possible in place of Dictionary lookup. For example, by conceiving of slices as List<Slice>, they can be referenced by integer index, allowing subslices to be referenced via int[]. Now, the first index can be used as a bitset to denote the presence of a given letter, and bit counting can be used to determine the index of that letter in the array. This reduces memory **and** is more performant than hash lookup.
 
 
 
