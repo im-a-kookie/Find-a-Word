@@ -1,11 +1,11 @@
 # FindaWord
 
-A really simple console application for making word search puzzles.
+A really simple console application for making word search puzzles. There may be bugs, as this is a proof of concept that has not been rigorously tested.
 
-Might have a few bugs, haven't rigorously tested it, probably not suuuper robust. It may freeze if given a poor set of letters, but it's unlikely.
+Essentially, the algorithm takes a given set of words, then generates a word search puzzle from those words. The remaining spaces are filled exclusively with the letters of these words, but in such a way that no additional words will be formed, resulting in puzzles that will, quote; "make your eyes bleed."
 
-Essentially: takes a given list of words, then creates a word search using those words and no other letters. In theory, this should also create no additional words when filling the grid, though I found this to be somewhat impractical when eliminating words of 3 or less letters.
+An example puzzle can be found [here](FindaWord/Resources/Puzzle.png).
 
 Simple CLI usage.
 
-Inspired by a reddit post about eye-bleedy word search puzzles, so I made a thing.
+Inspired by a social media post, where the poster lamented the difficulty of creating such puzzles manually.
