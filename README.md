@@ -2,7 +2,7 @@
 
 A really simple console application for making word search puzzles that increase difficulty by using limited numbers of letters. There may be bugs, as this is a proof of concept that has not been rigorously tested.
 
-Simple command line usage, with an inbuilt utility for choosing words from an included dictionary. Inspired by a social media post lamenting the difficulty of creating such puzzles for a spouse.
+Simple command line usage, with an inbuilt utility for choosing words from an included dictionary. Inspired by a social media post lamenting the difficulty of creating such puzzles for a spouse. The algorithm is an absolute mess, I hacked it out in about 30 minutes. Modularity and Readability both leave much to be desired.
 
 An example puzzle can be found [here](FindaWord/Resources/Puzzle.png).
 
@@ -10,13 +10,11 @@ An example puzzle can be found [here](FindaWord/Resources/Puzzle.png).
 
 Essentially, the algorithm takes a given set of words, then generates a word search puzzle from those words. The remaining spaces are filled exclusively with the letters of these words, but in such a way that no additional words will be formed, resulting in puzzles that will, quote; "make your eyes bleed."
 
-Words are excluded by (1) graphing a dictionary of common English words as a progessive tree, and (2) walking this graph as letters are placed with orthogonal adjacency, ensuring that no such placement arrives at a word-terminating node.
+Words are excluded by (1) graphing a dictionary of common English words as a progessive tree, and (2) walking this graph as letters are placed with orthogonal adjacency, ensuring that no such placement arrives at a word-terminating node. Easily configurable but words of up to 3 letters are still permitted due to... maths.
 
-While easily configurable, unspecified words of up to 3 letters may still appear, as it proves mathematically unreasonable to exclude them.
+The dictionary is constructed as a progressive tree, and done so fairly efficiently via Span. Construction is a bit slow at 500ms+ for large lists and the tree has significant memory requirements. As partitioningthe list by initial letter can obviate the need for synchronization, a multithreaded implementation is simple enough if on-demand construction is wanted.
 
-The progressive tree can be constructed very efficiently through the use of Span operations. However, tree construction is relatively slow (500ms+) and the final tree has significant memory requirements. In cases where this is not suitable, the algorithm may be significantly sped up by multithreading, as partitioning the list by initial letter obviates the need for synchronization.
-
-A further future optimization observes that, with only 26 possible branches, significant optimizations are possible in place of Dictionary lookup. For example, by conceiving of slices as List<Slice>, they can be referenced by integer index, allowing subslices to be referenced via int[]. Now, the first index can be used as a bitset to denote the presence of a given letter, and bit counting can be used to determine the index of that letter in the array. This reduces memory **and** is more performant than hash lookup.
+With only 26 possible branches, I suspect a dictionary lookup can be further optimized via indexing letters into uint and counting bits via LUT, thus indicating the real index of the letter in a continuous array.
 
 
 
